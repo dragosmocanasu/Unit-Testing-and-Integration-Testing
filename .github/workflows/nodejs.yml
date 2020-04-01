@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -26,17 +26,15 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run coverage
-    - run: cd coverage
-    - run: value = index.html
       env:  
         CI: true
         
     - name: Create artifacts folder
     - uses: actions/checkout@v1
-    - run: mkdir -p /artifacts && copy value /artifacts
+    - run: mkdir -p /artifacts
         
     - name: Archive code coverage results
     - uses: actions/upload-artifact@v1
       with:
         name: code-coverage-report
-        path: artifacts/value
+        path: coverage/index.html
