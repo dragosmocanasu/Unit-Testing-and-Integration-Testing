@@ -27,7 +27,7 @@ describe('Purchase', () => {
                 // purchase.internetConnection(true);
                 // purchase.internetConnection(false);
                 // purchase.internetConnection(false);
-                purchase.internetConnection(false);
+                purchase.internetConnection(true);
 
                 purchase.internetConnection(true);
                 assert.isBoolean(purchase.isInternetConnection);
