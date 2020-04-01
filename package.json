@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "testing_ma1/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
     "coverage": "testing_ma1/node_modules/.bin/nyc npm run test"
   },
   "keywords": [],
