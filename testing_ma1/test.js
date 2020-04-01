@@ -114,7 +114,7 @@ describe('Purchase', () => {
 
         describe('Should only accept integers when adding', () => {
             it('should not accept floats', () => {
-                purchase.phoneLines = 2.3;
+                purchase.phoneLines = 2.4;
                 expect(() => purchase.addPhoneLines()).to.throw('phoneLines must be an integer between 0 and 8.');
             });
             it('should not accept strings', () => {
