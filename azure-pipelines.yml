@@ -2,7 +2,7 @@
 - task: Npm@1
   inputs:
     command: 'install'
-    workingDir: '/testing_ma1/'
+    workingDir: 'testing_ma1'
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
