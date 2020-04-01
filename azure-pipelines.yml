@@ -17,5 +17,5 @@ steps:
 
 - script: |
     npm install
-    npm test
+    mocha test --reporter mocha-junit-reporter
   displayName: 'npm install, test'
