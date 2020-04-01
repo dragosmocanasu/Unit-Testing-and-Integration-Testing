@@ -28,11 +28,9 @@ jobs:
     - run: npm run coverage
       env:  
         CI: true
-        
     - name: Create artifacts folder
     - uses: actions/checkout@v1
     - run: mkdir -p /artifacts
-        
     - name: Archive code coverage results
     - uses: actions/upload-artifact@v1
       with:
