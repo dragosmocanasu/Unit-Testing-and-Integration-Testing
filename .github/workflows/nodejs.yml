@@ -25,15 +25,18 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm test
+    - run: npm run build
+    - run: npm run coverage
       env:
         CI: true
-
-    - uses: actions/checkout@v1
-    - run: mkdir artifacts/
-    - run: echo npm run coverage > artifacts/test.cmd
-
-    - uses: actions/upload-artifact@v1
+        
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
       with:
-        name: my-artifact
+        name: keanet-artifact
         path: artifacts/
+    - name: Archive artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: code-coverage-report
+        path: artifacts/code-coverage.html
