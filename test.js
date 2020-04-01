@@ -29,8 +29,7 @@ describe('Purchase', () => {
                 // purchase.internetConnection(false);
 
                 purchase.internetConnection(true);
-                // assert.isBoolean(purchase.isInternetConnection);
-                assert.isNotBoolean(purchase.isInternetConnection);
+                assert.isBoolean(purchase.isInternetConnection);
             });
             it('should only accept boolean values', () => {
                 expect(() => purchase.internetConnection('true')).to.throw('isInternetConnectionChecked must be a boolean.');
