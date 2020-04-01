@@ -1,10 +1,10 @@
 {
   "name": "testing_ma1",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "testing_ma1/index.js",
   "scripts": {
-    "test": "mocha",
-    "coverage": "nyc npm run test"
+    "test": "testing_ma1/node_modules/.bin/mocha",
+    "coverage": "testing_ma1/node_modules/.bin/nyc npm run test"
   },
   "keywords": [],
   "author": "",
