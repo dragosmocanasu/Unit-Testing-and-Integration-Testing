@@ -26,11 +26,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run coverage
+    - run: mkdir -p /artifacts
       env:  
         CI: true
-    - name: Create artifacts folder
-    - uses: actions/checkout@v1
-    - run: mkdir -p /artifacts
     - name: Archive code coverage results
     - uses: actions/upload-artifact@v1
       with:
