@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "testing_ma1/index.js",
   "scripts": {
-    "test": "testing_ma1/node_modules/.bin/mocha",
+    "test": "mocha"
     "coverage": "testing_ma1/node_modules/.bin/nyc npm run test"
   },
   "keywords": [],
@@ -14,5 +14,5 @@
     "chai": "^4.2.0",
     "mocha": "^7.1.1",
     "nyc": "^15.0.0"
-  }
+  },
 }
