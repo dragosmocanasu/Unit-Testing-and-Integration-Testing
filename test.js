@@ -42,7 +42,7 @@ describe('Purchase', () => {
             });
             it('should not be equal with false', () => {
                 purchase.internetConnection(true);
-                purchase.isInternetConnection.should.not.equal(false);
+                purchase.isInternetConnection.should.not.equal(true);
             });
             it('should total price be equal with 200', () => {
                 purchase.internetConnection(true);
