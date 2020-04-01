@@ -27,9 +27,8 @@ describe('Purchase', () => {
                 // purchase.internetConnection(true);
                 // purchase.internetConnection(false);
                 // purchase.internetConnection(false);
-                purchase.internetConnection(true);
 
-                purchase.internetConnection(true);
+                purchase.internetConnection(false);
                 assert.isBoolean(purchase.isInternetConnection);
             });
             it('should only accept boolean values', () => {
