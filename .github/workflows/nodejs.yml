@@ -28,13 +28,17 @@ jobs:
     - run: npm test
       env:
         CI: true
-      
-
-    - uses: actions/checkout@v1
-    - run: mkdir artifacts/
-    - run: echo npm run coverage > artifacts/test.cmd
-
-    - uses: actions/upload-artifact@v1
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v1
       with:
-        name: my-artifact
-        path: artifacts/
+        name: dist
+        path: dist 
+
+    #- uses: actions/checkout@v1
+    #- run: mkdir artifacts/
+    #- run: echo npm run coverage > artifacts/test.cmd
+
+    #- uses: actions/upload-artifact@v1
+    #  with:
+    #    name: my-artifact
+    #    path: artifacts/
