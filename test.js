@@ -26,6 +26,7 @@ describe('Purchase', () => {
             it('should be a boolean', () => {
                 // purchase.internetConnection(true);
                 // purchase.internetConnection(false);
+                // purchase.internetConnection(false);
                 purchase.internetConnection(false);
 
                 purchase.internetConnection(true);
