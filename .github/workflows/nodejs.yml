@@ -26,10 +26,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run coverage
-    - run: mkdir -p /artifacts
       env:  
         CI: true
+    
+    - uses: actions/checkout@v1
     - name: Archive code coverage results
+    - run: mkdir -p /artifacts
     - uses: actions/upload-artifact@v1
       with:
         name: code-coverage-report
