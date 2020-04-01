@@ -344,4 +344,40 @@ describe('Purchase', () => {
             });
         });
     });
+
+    // describe('Select a Cell Phone functionality', () => {
+    //     let purchase;
+    //
+    //     beforeEach(() => {
+    //         purchase = new Purchase(0, false, 0, []);
+    //     });
+    //
+    //     describe('Check if the input parameter (modelName) is valid', () => {
+    //         it('should be a string', () => {
+    //             assert.isString(modelName);
+    //         });
+    //         it('should not be a Null', () => {
+    //             assert.isNotNull(modelName);
+    //         });
+    //         it('should not be a Number', () => {
+    //             assert.isNotNumber(modelName);
+    //         });
+    //         it('should not be a Boolean', () => {
+    //             assert.isNotBoolean(modelName);
+    //         });
+    //         it('should not be a Boolean', () => {
+    //             assert.isNotEmpty(modelName);
+    //
+    //             // // Execution steps - use the divide() method
+    //             // result = this.calculator.divide(n1, n2);
+    //             //
+    //             // // Expected behavior - assert that expectedResult is equal to result
+    //             // assertEquals(expectedResult, result);
+    //             // // Expected behavior - assert that wrongResult is NOT equal to result
+    //             // assertNotEquals(wrongResult, result);
+    //
+    //         });
+    //     });
+    //
+    // });
 });
