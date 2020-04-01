@@ -6,13 +6,15 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-  
+
 steps:
 - task: Npm@1
   inputs:
     command: 'install'
+    workingDir: 'testing_ma1'
 
 - script: |
     npm install
     npm test
   displayName: 'npm install, test'
+
