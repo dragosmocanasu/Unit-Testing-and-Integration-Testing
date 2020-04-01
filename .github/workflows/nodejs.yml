@@ -26,20 +26,14 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm test
-    - run: mkdir artifacts/
       env:
         CI: true
-    - name: Archive production artifacts
-      uses: actions/upload-artifact@v1
+
+    - uses: actions/checkout@v1
+    - run: mkdir artifacts/
+    - run: echo npm run coverage > artifacts/test.cmd
+
+    - uses: actions/upload-artifact@v1
       with:
-        name: artifact
-        path: artifacts 
-
-    #- uses: actions/checkout@v1
-    #- run: mkdir artifacts/
-    #- run: echo npm run coverage > artifacts/test.cmd
-
-    #- uses: actions/upload-artifact@v1
-    #  with:
-    #    name: my-artifact
-    #    path: artifacts/
+        name: my-artifact
+        path: artifacts/
