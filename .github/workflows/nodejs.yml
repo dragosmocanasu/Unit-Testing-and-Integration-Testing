@@ -34,7 +34,7 @@ jobs:
     - run: mkdir -p artifacts/
     
     - name: Archive production artifacts
-      uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v1
       with:
         name: artifacts
         path: artifacts/
