@@ -14,8 +14,8 @@ steps:
     workingDir: 'testing_ma1'
 
 - script: |
+    npm init
     npm install
-    npm run build
     npm test
   displayName: 'npm install, test'
 
