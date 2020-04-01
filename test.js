@@ -12,7 +12,7 @@ let assert = require('chai').assert;
 
 chai.should();
 
-let Purchase = require("../testing_ma1/purchase");
+let Purchase = require("./purchase.js");
 
 describe('Purchase', () => {
     describe('Internet connection functionality', () => {
@@ -24,10 +24,7 @@ describe('Purchase', () => {
 
         describe('Check the internet connection data type', () => {
             it('should be a boolean', () => {
-                // purchase.internetConnection(true);
-                purchase.internetConnection(false);
-                purchase.internetConnection(false);
-
+                purchase.internetConnection(true);
                 assert.isBoolean(purchase.isInternetConnection);
             });
             it('should only accept boolean values', () => {
@@ -114,7 +111,7 @@ describe('Purchase', () => {
 
         describe('Should only accept integers when adding', () => {
             it('should not accept floats', () => {
-                purchase.phoneLines = 2.4;
+                purchase.phoneLines = 2.3;
                 expect(() => purchase.addPhoneLines()).to.throw('phoneLines must be an integer between 0 and 8.');
             });
             it('should not accept strings', () => {
@@ -335,7 +332,7 @@ describe('Purchase', () => {
                 purchase.selectCellPhone('Huawei 99');
                 purchase.selectCellPhone('Samsung Galaxy 99');
                 purchase.unselectCellPhone('iPhone 99');
-                purchase.showBuyingReceipt().should.equal('Internet Connection: ' + false + '\n' +
+                purchase.showBuyingReceipt().should.equal('Internet Connection: ' + true + '\n' +
                     'Number of Phone Lines: ' + 5 + '\n' +
                     'Cell Phones: ' + 'Motorola G99,Samsung Galaxy 99,Sony Xperia 99,Samsung Galaxy 99,iPhone 99,Huawei 99,Samsung Galaxy 99' + '\n' +
                     'Total Price: ' + 12550 + ' DKK'
