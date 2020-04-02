@@ -458,6 +458,16 @@ describe('Purchase', () => {
                 purchase.selectCellPhone('Sony Xperia 99');
                 expect(purchase.selectedCellPhones).to.have.members(["Motorola G99", "Motorola G99", 'Huawei 99', "Motorola G99", "Huawei 99", "iPhone 99", "iPhone 99", "Sony Xperia 99"]);
             });
+            // Add more phones in the same time
+            it('should add 5 elements to the selectedCellPhones array - DATA PROVIDER', () => {
+                let dataProvider = ["Motorola G99", "iPhone 99", 'Samsung Galaxy 99', "Sony Xperia 99", "Huawei 99"];
+
+                expect(purchase.selectedCellPhones).to.have.members([]);
+                for (let i = 0; i < dataProvider.length; i ++) {
+                    purchase.selectCellPhone(dataProvider[i]);
+                }
+                expect(purchase.selectedCellPhones).to.have.members(["Motorola G99", "iPhone 99", 'Samsung Galaxy 99', "Sony Xperia 99", "Huawei 99"]);
+            });
 
         });
 
