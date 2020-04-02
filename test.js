@@ -1,6 +1,4 @@
 // Order of execution:
-// ls / dir 
-// cd testing_ma1
 // npm i
 // to run just the tests: npm test
 // to test code coverage: npm run coverage
@@ -28,10 +26,12 @@ describe('Purchase', () => {
                 assert.isBoolean(purchase.isInternetConnection);
             });
             it('should only accept boolean values', () => {
-                expect(() => purchase.internetConnection('true')).to.throw('isInternetConnectionChecked must be a boolean.');
-            });
-            it('should only accept boolean values', () => {
-                expect(() => purchase.internetConnection(1)).to.throw('isInternetConnectionChecked must be a boolean.');
+                const invalidValues = ['true', 1, 1.1];
+                const errorMessage = 'isInternetConnectionChecked must be a boolean.';
+                for (let i = 0; i < invalidValues.length; i++) {
+                    console.log(invalidValues[i]);
+                    expect(() => purchase.internetConnection(invalidValues[i])).to.throw(errorMessage);
+                }
             });
         });
 
