@@ -542,6 +542,7 @@ describe('Purchase', () => {
             it('should not fail if the parameter is a String object', function(){
                 expect(() => purchase.unselectCellPhone(String('Text'))).to.not.throw('The parameter modelName must be a string.');
             });
+
         });
 
     });
