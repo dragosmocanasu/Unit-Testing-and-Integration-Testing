@@ -392,6 +392,7 @@ describe('Purchase', () => {
             it('should not throw error if parameter is Huawei 99', function(){
                 expect(() => purchase.selectCellPhone(String('Huawei 99'))).to.not.throw('The Model Name must be one of the 5 available Models!');
             });
+
             // Invalid values - writing just part of the phone name
             it('should throw error if parameter is Motorola', function(){
                 expect(() => purchase.selectCellPhone(String('Motorola'))).to.throw('The Model Name must be one of the 5 available Models!');
@@ -408,6 +409,7 @@ describe('Purchase', () => {
             it('should throw error if parameter is Huawei', function(){
                 expect(() => purchase.selectCellPhone(String('Huawei'))).to.throw('The Model Name must be one of the 5 available Models!');
             });
+
             // Invalid values
             it('should throw error if parameter is an Empty String', function(){
                 expect(() => purchase.selectCellPhone(String(''))).to.throw('The Model Name must be one of the 5 available Models!');
@@ -415,8 +417,19 @@ describe('Purchase', () => {
             it('should throw error if parameter is NOT A PHONE NAME', function(){
                 expect(() => purchase.selectCellPhone(String('NOT A PHONE NAME'))).to.throw('The Model Name must be one of the 5 available Models!');
             });
+        });
+
+        describe('Check if a VALID selected phone name is added in the array of selectedCellPhones', () => {
+            // Valid cases
+            it('should add "Motorola G99" to the selectedCellPhones array', () => {
+                expect(purchase.selectedCellPhones).to.have.members([]);
+                purchase.selectCellPhone('Motorola G99');
+                expect(purchase.selectedCellPhones).to.have.members(['Motorola G99']);
+            });
 
         });
+
+
 
     });
 });
