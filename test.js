@@ -559,6 +559,9 @@ describe('Purchase', () => {
             it('should fail if the parameter is a literal number', function(){
                 expect(() => purchase.unselectCellPhone(1)).to.throw('The parameter modelName must be a string.');
             });
+            it('should fail if the parameter is a Number object', function(){
+                expect(() => purchase.unselectCellPhone(Number(10))).to.throw('The parameter modelName must be a string.');
+            });
 
         });
 
