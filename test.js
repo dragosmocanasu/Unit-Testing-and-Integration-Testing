@@ -729,6 +729,13 @@ describe('Purchase', () => {
                 }
                 purchase.totalPrice.should.equal(0);
             });
+            it('should NOT decrease totalPrice if a not existing phone was removed', () => {
+                purchase.totalPrice.should.equal(0);
+                purchase.selectCellPhone('Huawei 99');
+                purchase.totalPrice.should.equal(900);
+                purchase.unselectCellPhone('iPhone 99');
+                purchase.totalPrice.should.not.equal(900);
+            });
 
         });
 
