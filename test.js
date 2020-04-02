@@ -364,6 +364,12 @@ describe('Purchase', () => {
                 expect(() => purchase.selectCellPhone("Text")).to.not.throw('The parameter modelName must be a string.');
             });
 
+            // Expect errors to be thrown
+            it('should fail if parameter is not given', function(){
+                // call selectCellPhone() with no parameters
+                expect(() => purchase.selectCellPhone()).to.throw('The parameter modelName must be a string.');
+            });
+
 
         });
 
