@@ -412,6 +412,9 @@ describe('Purchase', () => {
             it('should throw error if parameter is an Empty String', function(){
                 expect(() => purchase.selectCellPhone(String(''))).to.throw('The Model Name must be one of the 5 available Models!');
             });
+            it('should throw error if parameter is NOT A PHONE NAME', function(){
+                expect(() => purchase.selectCellPhone(String('NOT A PHONE NAME'))).to.throw('The Model Name must be one of the 5 available Models!');
+            });
 
         });
 
