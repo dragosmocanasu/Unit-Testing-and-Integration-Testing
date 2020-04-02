@@ -371,13 +371,16 @@ describe('Purchase', () => {
             });
 
             it('should fail if parameter is NaN', function(){
-                expect(() => purchase.selectCellPhone(undefined, NaN)).to.throw('The parameter modelName must be a string.');
+                expect(() => purchase.selectCellPhone(NaN)).to.throw('The parameter modelName must be a string.');
             });
 
             it('should fail if the parameter is a literal number', function(){
-                expect(() => purchase.selectCellPhone(undefined, 1)).to.throw('The parameter modelName must be a string.');
+                expect(() => purchase.selectCellPhone(1)).to.throw('The parameter modelName must be a string.');
             });
 
+            it('should fail if the parameter is a Number object', function(){
+                expect(() => purchase.selectCellPhone(Number(10))).to.throw('The parameter modelName must be a string.');
+            });
 
         });
 
