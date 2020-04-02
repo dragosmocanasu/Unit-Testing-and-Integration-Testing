@@ -702,6 +702,13 @@ describe('Purchase', () => {
                 purchase.unselectCellPhone('Sony Xperia 99');
                 purchase.totalPrice.should.equal(0);
             });
+            it('should have totalPrice 0 when "Huawei 99" is removed', () => {
+                purchase.totalPrice.should.equal(0);
+                purchase.selectCellPhone('Huawei 99');
+                purchase.totalPrice.should.equal(900);
+                purchase.unselectCellPhone('Huawei 99');
+                purchase.totalPrice.should.equal(0);
+            });
 
         });
 
