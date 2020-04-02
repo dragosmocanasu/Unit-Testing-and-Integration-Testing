@@ -76,7 +76,7 @@ class Purchase {
         }
 
         // iterate through the cellPhoneNames array
-        // if we find an elemnt in the array with the same name as the newly selected phone,
+        // if we find an element in the array with the same name as the newly selected phone,
         // then add the newly selected phone name in the array of selectedCellPhones
         // increase the total price with the corresponding cost of the selected phone
         for (let i = 0; i < cellPhoneNames.length; i ++) {
@@ -93,14 +93,19 @@ class Purchase {
         const cellPhoneNames = ["Motorola G99", "iPhone 99", 'Samsung Galaxy 99', "Sony Xperia 99", "Huawei 99"];
         const cellPhonePrices = [800, 6000, 1000, 900, 900];  // frequency array
 
+        // if the parameter received is not a string, then throw an error
         if (typeof modelName !== 'string') {
             throw new Error('modelName must be a string.');
         }
 
+        // if the parameter received is not included in the array of Available Phones (cellPhoneNames), then throw an error
         if(!cellPhoneNames.includes(modelName)) {
             throw new Error('The model name must be one of the 5 available models!');
         }
 
+        // iterate through the selectedCellPhones array
+        // if we find an element in the array with the same name as the newly selected phone,
+        // then delete the newly selected phone name in the array of selectedCellPhones
         for (let i = 0; i < this.selectedCellPhones.length; i ++) {
             if (modelName === this.selectedCellPhones[i]) {
                 this.selectedCellPhones.splice(i, 1); // delete an element from array at index i
@@ -108,6 +113,9 @@ class Purchase {
             }
         }
 
+        // iterate through the cellPhoneNames array
+        // if we find an element in the array with the same name as the newly selected phone,
+        // decrease the total price with the corresponding cost of the selected phone
         for (let i = 0; i < cellPhoneNames.length; i ++) {
             if (modelName === cellPhoneNames[i]) {
                 this.totalPrice -= cellPhonePrices[i];
