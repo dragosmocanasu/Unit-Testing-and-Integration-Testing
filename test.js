@@ -672,6 +672,17 @@ describe('Purchase', () => {
             });
 
         });
+        describe('Check if the price decreases when removing a phone name', () => {
+            // Valid cases
+            it('should have totalPrice 0 when "Motorola G99" is removed', () => {
+                purchase.totalPrice.should.equal(0);
+                purchase.selectCellPhone('Motorola G99');
+                purchase.totalPrice.should.equal(800);
+                purchase.unselectCellPhone('Motorola G99');
+                purchase.totalPrice.should.equal(0);
+            });
+
+        });
 
     });
 });
