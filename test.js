@@ -645,6 +645,24 @@ describe('Purchase', () => {
                 expect(purchase.selectedCellPhones).to.have.members([]);
             });
 
+            // Remove more phones in the same time
+            it('should remove 5 elements from the selectedCellPhones array - DATA PROVIDER', () => {
+                let dataProvider = ["Motorola G99", "iPhone 99", 'Samsung Galaxy 99', "Sony Xperia 99", "Huawei 99"];
+
+                // Add phones
+                expect(purchase.selectedCellPhones).to.have.members([]);
+                for (let i = 0; i < dataProvider.length; i ++) {
+                    purchase.selectCellPhone(dataProvider[i]);
+                }
+                expect(purchase.selectedCellPhones).to.have.members(["Motorola G99", "iPhone 99", 'Samsung Galaxy 99', "Sony Xperia 99", "Huawei 99"]);
+
+                // Remove phones
+                for (let i = 0; i < dataProvider.length; i ++) {
+                    purchase.unselectCellPhone(dataProvider[i]);
+                }
+                expect(purchase.selectedCellPhones).to.have.members([]);
+            });
+
         });
 
     });
