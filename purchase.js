@@ -65,18 +65,25 @@ class Purchase {
         const cellPhoneNames = ["Motorola G99", "iPhone 99", 'Samsung Galaxy 99', "Sony Xperia 99", "Huawei 99"];
         const cellPhonePrices = [800, 6000, 1000, 900, 900];  // frequency array
 
+        // if the parameter received is not a string, then throw an error
         if (typeof modelName !== 'string') {
             throw new Error('modelName must be a string.');
         }
 
+        // if the parameter received is not included in the array of Available Phones (cellPhoneNames), then throw an error
         if(!cellPhoneNames.includes(modelName)) {
-            throw new Error('The modal name must be one of the 5 available models!');
+            throw new Error('The Model Name must be one of the 5 available Models!');
         }
 
+        // iterate through the cellPhoneNames array
+        // if we find an elemnt in the array with the same name as the newly selected phone,
+        // then add the newly selected phone name in the array of selectedCellPhones
+        // increase the total price with the corresponding cost of the selected phone
         for (let i = 0; i < cellPhoneNames.length; i ++) {
             if (modelName === cellPhoneNames[i]) {
                 this.selectedCellPhones.push(modelName);
                 this.totalPrice += cellPhonePrices[i];
+                break;
             }
         }
         return this.totalPrice;
