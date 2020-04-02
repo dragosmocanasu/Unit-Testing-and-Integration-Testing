@@ -348,18 +348,13 @@ describe('Purchase', () => {
             purchase = new Purchase(0, false, 0, []);
         });
 
-
-
         describe('Check if the parameter (modelName) is valid', () => {
-
             it('should not fail if the parameter is a String object', function(){
                 expect(() => purchase.selectCellPhone(String('Text'))).to.not.throw('The parameter modelName must be a string.');
             });
-
             it('should not fail if the parameter is a String with single quotes', function(){
                 expect(() => purchase.selectCellPhone('Text')).to.not.throw('The parameter modelName must be a string.');
             });
-
             it('should not fail if the parameter is a String with double quotes', function(){
                 expect(() => purchase.selectCellPhone("Text")).to.not.throw('The parameter modelName must be a string.');
             });
@@ -369,17 +364,21 @@ describe('Purchase', () => {
                 // call selectCellPhone() with no parameters
                 expect(() => purchase.selectCellPhone()).to.throw('The parameter modelName must be a string.');
             });
-
             it('should fail if parameter is NaN', function(){
                 expect(() => purchase.selectCellPhone(NaN)).to.throw('The parameter modelName must be a string.');
             });
-
             it('should fail if the parameter is a literal number', function(){
                 expect(() => purchase.selectCellPhone(1)).to.throw('The parameter modelName must be a string.');
             });
-
             it('should fail if the parameter is a Number object', function(){
                 expect(() => purchase.selectCellPhone(Number(10))).to.throw('The parameter modelName must be a string.');
+            });
+        });
+
+        describe('Check if error is thrown ("The Model Name must be one of the 5 available Models!")', () => {
+            // Valid values
+            it('should not throw error if parameter is Motorola G99', function(){
+                expect(() => purchase.selectCellPhone(String('Motorola G99'))).to.not.throw('The Model Name must be one of the 5 available Models!');
             });
 
         });
