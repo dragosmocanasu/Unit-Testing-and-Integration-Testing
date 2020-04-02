@@ -383,6 +383,9 @@ describe('Purchase', () => {
             it('should not throw error if parameter is iPhone 99', function(){
                 expect(() => purchase.selectCellPhone(String('iPhone 99'))).to.not.throw('The Model Name must be one of the 5 available Models!');
             });
+            it('should not throw error if parameter is Samsung Galaxy 99', function(){
+                expect(() => purchase.selectCellPhone(String('Samsung Galaxy 99'))).to.not.throw('The Model Name must be one of the 5 available Models!');
+            });
 
         });
 
