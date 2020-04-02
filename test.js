@@ -426,6 +426,11 @@ describe('Purchase', () => {
                 purchase.selectCellPhone('Motorola G99');
                 expect(purchase.selectedCellPhones).to.have.members(['Motorola G99']);
             });
+            it('should add "iPhone 99" to the selectedCellPhones array', () => {
+                expect(purchase.selectedCellPhones).to.have.members([]);
+                purchase.selectCellPhone('iPhone 99');
+                expect(purchase.selectedCellPhones).to.have.members(['iPhone 99']);
+            });
 
         });
 
