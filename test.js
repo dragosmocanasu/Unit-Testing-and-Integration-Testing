@@ -681,6 +681,13 @@ describe('Purchase', () => {
                 purchase.unselectCellPhone('Motorola G99');
                 purchase.totalPrice.should.equal(0);
             });
+            it('should have totalPrice 0 when "iPhone 99" is removed', () => {
+                purchase.totalPrice.should.equal(0);
+                purchase.selectCellPhone('iPhone 99');
+                purchase.totalPrice.should.equal(6000);
+                purchase.unselectCellPhone('iPhone 99');
+                purchase.totalPrice.should.equal(0);
+            });
 
         });
 
