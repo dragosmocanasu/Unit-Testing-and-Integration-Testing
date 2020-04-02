@@ -356,6 +356,11 @@ describe('Purchase', () => {
                 expect(() => purchase.selectCellPhone(String('Text'))).to.not.throw('The parameter modelName must be a string.');
             });
 
+            it('should not fail if the parameter is a String with single quotes', function(){
+                expect(() => purchase.selectCellPhone('Text')).to.not.throw('The parameter modelName must be a string.');
+            });
+
+
         });
 
     });
