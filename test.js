@@ -408,6 +408,10 @@ describe('Purchase', () => {
             it('should throw error if parameter is Huawei', function(){
                 expect(() => purchase.selectCellPhone(String('Huawei'))).to.throw('The Model Name must be one of the 5 available Models!');
             });
+            // Invalid values
+            it('should throw error if parameter is an Empty String', function(){
+                expect(() => purchase.selectCellPhone(String(''))).to.throw('The Model Name must be one of the 5 available Models!');
+            });
 
         });
 
