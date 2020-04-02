@@ -478,7 +478,6 @@ describe('Purchase', () => {
                 purchase.selectCellPhone('Motorola G99');
                 expect(purchase.selectedCellPhones).to.not.have.members(['Motorola G99']);
             });
-
         });
 
         describe('Check if the price increases when adding a phone name', () => {
@@ -521,10 +520,12 @@ describe('Purchase', () => {
                 purchase.totalPrice.should.equal(expectedPrice);
             });
 
-
+            // Invalid cases
+            it('should NOT have totalPrice 0 when "Huawei 99" is added', () => {
+                purchase.totalPrice.should.equal(0);
+                purchase.selectCellPhone('Huawei 99');
+                purchase.totalPrice.should.not.equal(0);
+            });
         });
-
-
-
     });
 });
