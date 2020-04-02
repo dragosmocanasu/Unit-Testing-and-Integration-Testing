@@ -695,6 +695,13 @@ describe('Purchase', () => {
                 purchase.unselectCellPhone('Samsung Galaxy 99');
                 purchase.totalPrice.should.equal(0);
             });
+            it('should have totalPrice 0 when "Sony Xperia 99" is removed', () => {
+                purchase.totalPrice.should.equal(0);
+                purchase.selectCellPhone('Sony Xperia 99');
+                purchase.totalPrice.should.equal(900);
+                purchase.unselectCellPhone('Sony Xperia 99');
+                purchase.totalPrice.should.equal(0);
+            });
 
         });
 
