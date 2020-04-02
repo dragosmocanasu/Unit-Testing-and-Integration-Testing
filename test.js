@@ -423,32 +423,26 @@ describe('Purchase', () => {
         describe('Check if a VALID selected phone name is added in the array of selectedCellPhones', () => {
             // Valid cases
             it('should add "Motorola G99" to the selectedCellPhones array', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('Motorola G99');
                 expect(purchase.selectedCellPhones).to.have.members(['Motorola G99']);
             });
             it('should add "iPhone 99" to the selectedCellPhones array', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('iPhone 99');
                 expect(purchase.selectedCellPhones).to.have.members(['iPhone 99']);
             });
             it('should add "Samsung Galaxy 99" to the selectedCellPhones array', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('Samsung Galaxy 99');
                 expect(purchase.selectedCellPhones).to.have.members(['Samsung Galaxy 99']);
             });
             it('should add "Sony Xperia 99" to the selectedCellPhones array', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('Sony Xperia 99');
                 expect(purchase.selectedCellPhones).to.have.members(['Sony Xperia 99']);
             });
             it('should add "Huawei 99" to the selectedCellPhones array', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('Huawei 99');
                 expect(purchase.selectedCellPhones).to.have.members(['Huawei 99']);
             });
             it('should add the same elemnt multiple time to the selectedCellPhones array', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('Motorola G99');
                 purchase.selectCellPhone('Motorola G99');
                 purchase.selectCellPhone('Huawei 99');
@@ -464,7 +458,6 @@ describe('Purchase', () => {
             it('should add 5 elements to the selectedCellPhones array - DATA PROVIDER', () => {
                 let dataProvider = ["Motorola G99", "iPhone 99", 'Samsung Galaxy 99', "Sony Xperia 99", "Huawei 99"];
 
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 for (let i = 0; i < dataProvider.length; i ++) {
                     purchase.selectCellPhone(dataProvider[i]);
                 }
@@ -473,7 +466,6 @@ describe('Purchase', () => {
 
             // Invalid cases
             it('should not have 3 elements in the selectedCellPhones array when one is added', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('Motorola G99');
                 purchase.selectCellPhone('iPhone 99');
                 purchase.selectCellPhone('Motorola G99');
@@ -484,27 +476,22 @@ describe('Purchase', () => {
         describe('Check if the price increases when adding a phone name', () => {
             // Valid cases
             it('should have totalPrice 800 when "Motorola G99" is added', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('Motorola G99');
                 purchase.totalPrice.should.equal(800);
             });
             it('should have totalPrice 6000 when "iPhone 99" is added', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('iPhone 99');
                 purchase.totalPrice.should.equal(6000);
             });
             it('should have totalPrice 1000 when "Samsung Galaxy 99" is added', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('Samsung Galaxy 99');
                 purchase.totalPrice.should.equal(1000);
             });
             it('should have totalPrice 900 when "Sony Xperia 99" is added', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('Sony Xperia 99');
                 purchase.totalPrice.should.equal(900);
             });
             it('should have totalPrice 900 when "Huawei 99" is added', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('Huawei 99');
                 purchase.totalPrice.should.equal(900);
             });
@@ -513,7 +500,6 @@ describe('Purchase', () => {
                 let dataProviderPrices = [800, 6000, 1000, 900, 900];
                 let expectedPrice = 0;
 
-                purchase.totalPrice.should.equal(0);
                 for (let i = 0; i < dataProviderNames.length; i ++) {
                     purchase.selectCellPhone(dataProviderNames[i]);
                     expectedPrice += dataProviderPrices[i];
@@ -523,7 +509,6 @@ describe('Purchase', () => {
 
             // Invalid cases
             it('should NOT have totalPrice 0 when "Huawei 99" is added', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('Huawei 99');
                 purchase.totalPrice.should.not.equal(0);
             });
@@ -612,37 +597,27 @@ describe('Purchase', () => {
         describe('Check if a VALID selected phone name is removed from the array of selectedCellPhones', () => {
             // Valid cases
             it('should remove "Motorola G99" from the selectedCellPhones array', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('Motorola G99');
-                expect(purchase.selectedCellPhones).to.have.members(['Motorola G99']);
                 purchase.unselectCellPhone('Motorola G99');
                 expect(purchase.selectedCellPhones).to.have.members([]);
             });
             it('should remove "iPhone 99" from the selectedCellPhones array', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('iPhone 99');
-                expect(purchase.selectedCellPhones).to.have.members(['iPhone 99']);
                 purchase.unselectCellPhone('iPhone 99');
                 expect(purchase.selectedCellPhones).to.have.members([]);
             });
             it('should remove "Samsung Galaxy 99" from the selectedCellPhones array', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('Samsung Galaxy 99');
-                expect(purchase.selectedCellPhones).to.have.members(['Samsung Galaxy 99']);
                 purchase.unselectCellPhone('Samsung Galaxy 99');
                 expect(purchase.selectedCellPhones).to.have.members([]);
             });
             it('should remove "Sony Xperia 99" from the selectedCellPhones array', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('Sony Xperia 99');
-                expect(purchase.selectedCellPhones).to.have.members(['Sony Xperia 99']);
                 purchase.unselectCellPhone('Sony Xperia 99');
                 expect(purchase.selectedCellPhones).to.have.members([]);
             });
             it('should remove "Huawei 99" from the selectedCellPhones array', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('Huawei 99');
-                expect(purchase.selectedCellPhones).to.have.members(['Huawei 99']);
                 purchase.unselectCellPhone('Huawei 99');
                 expect(purchase.selectedCellPhones).to.have.members([]);
             });
@@ -652,7 +627,6 @@ describe('Purchase', () => {
                 let dataProvider = ["Motorola G99", "iPhone 99", 'Samsung Galaxy 99', "Sony Xperia 99", "Huawei 99"];
 
                 // Add phones
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 for (let i = 0; i < dataProvider.length; i ++) {
                     purchase.selectCellPhone(dataProvider[i]);
                 }
@@ -667,7 +641,6 @@ describe('Purchase', () => {
 
             // Invalid cases
             it('should not remove any elements if the Phone Name is not in the list already', () => {
-                expect(purchase.selectedCellPhones).to.have.members([]);
                 purchase.selectCellPhone('Motorola G99');
                 purchase.unselectCellPhone('iPhone 99');
                 expect(purchase.selectedCellPhones).to.have.members(['Motorola G99']);
@@ -676,37 +649,27 @@ describe('Purchase', () => {
         describe('Check if the price decreases when removing a phone name', () => {
             // Valid cases
             it('should have totalPrice 0 when "Motorola G99" is removed', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('Motorola G99');
-                purchase.totalPrice.should.equal(800);
                 purchase.unselectCellPhone('Motorola G99');
                 purchase.totalPrice.should.equal(0);
             });
             it('should have totalPrice 0 when "iPhone 99" is removed', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('iPhone 99');
-                purchase.totalPrice.should.equal(6000);
                 purchase.unselectCellPhone('iPhone 99');
                 purchase.totalPrice.should.equal(0);
             });
             it('should have totalPrice 0 when "Samsung Galaxy 99" is removed', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('Samsung Galaxy 99');
-                purchase.totalPrice.should.equal(1000);
                 purchase.unselectCellPhone('Samsung Galaxy 99');
                 purchase.totalPrice.should.equal(0);
             });
             it('should have totalPrice 0 when "Sony Xperia 99" is removed', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('Sony Xperia 99');
-                purchase.totalPrice.should.equal(900);
                 purchase.unselectCellPhone('Sony Xperia 99');
                 purchase.totalPrice.should.equal(0);
             });
             it('should have totalPrice 0 when "Huawei 99" is removed', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('Huawei 99');
-                purchase.totalPrice.should.equal(900);
                 purchase.unselectCellPhone('Huawei 99');
                 purchase.totalPrice.should.equal(0);
             });
@@ -716,12 +679,10 @@ describe('Purchase', () => {
                 let expectedPrice = 0;
 
                 // Add Phones
-                purchase.totalPrice.should.equal(0);
                 for (let i = 0; i < dataProviderNames.length; i ++) {
                     purchase.selectCellPhone(dataProviderNames[i]);
                     expectedPrice += dataProviderPrices[i];
                 }
-                purchase.totalPrice.should.equal(expectedPrice);
 
                 // Remove Phones
                 for (let i = 0; i < dataProviderNames.length; i ++) {
@@ -731,18 +692,14 @@ describe('Purchase', () => {
                 purchase.totalPrice.should.equal(0);
             });
             it('should NOT decrease totalPrice if a not existing phone was removed', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('Huawei 99');
-                purchase.totalPrice.should.equal(900);
                 purchase.unselectCellPhone('iPhone 99');
                 purchase.totalPrice.should.not.equal(900);
             });
 
             // Invalid cases
             it('should NOT have totalPrice 900 when "Huawei 99" was removed', () => {
-                purchase.totalPrice.should.equal(0);
                 purchase.selectCellPhone('Huawei 99');
-                purchase.totalPrice.should.equal(900);
                 purchase.unselectCellPhone('Huawei 99');
                 purchase.totalPrice.should.not.equal(900);
             });
