@@ -709,6 +709,26 @@ describe('Purchase', () => {
                 purchase.unselectCellPhone('Huawei 99');
                 purchase.totalPrice.should.equal(0);
             });
+            it('should have totalPrice calculated based on removing 5 elements - DATA PROVIDER', () => {
+                let dataProviderNames = ["Motorola G99", "iPhone 99", 'Samsung Galaxy 99', "Sony Xperia 99", "Huawei 99"];
+                let dataProviderPrices = [800, 6000, 1000, 900, 900];
+                let expectedPrice = 0;
+
+                // Add Phones
+                purchase.totalPrice.should.equal(0);
+                for (let i = 0; i < dataProviderNames.length; i ++) {
+                    purchase.selectCellPhone(dataProviderNames[i]);
+                    expectedPrice += dataProviderPrices[i];
+                }
+                purchase.totalPrice.should.equal(expectedPrice);
+
+                // Remove Phones
+                for (let i = 0; i < dataProviderNames.length; i ++) {
+                    purchase.unselectCellPhone(dataProviderNames[i]);
+                    expectedPrice -= dataProviderPrices[i];
+                }
+                purchase.totalPrice.should.equal(0);
+            });
 
         });
 
