@@ -498,6 +498,11 @@ describe('Purchase', () => {
                 purchase.selectCellPhone('Samsung Galaxy 99');
                 purchase.totalPrice.should.equal(1000);
             });
+            it('should have totalPrice 900 when "Sony Xperia 99" is added', () => {
+                purchase.totalPrice.should.equal(0);
+                purchase.selectCellPhone('Sony Xperia 99');
+                purchase.totalPrice.should.equal(900);
+            });
 
 
         });
