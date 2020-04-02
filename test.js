@@ -688,6 +688,13 @@ describe('Purchase', () => {
                 purchase.unselectCellPhone('iPhone 99');
                 purchase.totalPrice.should.equal(0);
             });
+            it('should have totalPrice 0 when "Samsung Galaxy 99" is removed', () => {
+                purchase.totalPrice.should.equal(0);
+                purchase.selectCellPhone('Samsung Galaxy 99');
+                purchase.totalPrice.should.equal(1000);
+                purchase.unselectCellPhone('Samsung Galaxy 99');
+                purchase.totalPrice.should.equal(0);
+            });
 
         });
 
