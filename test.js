@@ -616,6 +616,13 @@ describe('Purchase', () => {
                 purchase.unselectCellPhone('Motorola G99');
                 expect(purchase.selectedCellPhones).to.have.members([]);
             });
+            it('should remove "iPhone 99" from the selectedCellPhones array', () => {
+                expect(purchase.selectedCellPhones).to.have.members([]);
+                purchase.selectCellPhone('iPhone 99');
+                expect(purchase.selectedCellPhones).to.have.members(['iPhone 99']);
+                purchase.unselectCellPhone('iPhone 99');
+                expect(purchase.selectedCellPhones).to.have.members([]);
+            });
 
         });
 
