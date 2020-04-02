@@ -488,6 +488,11 @@ describe('Purchase', () => {
                 purchase.selectCellPhone('Motorola G99');
                 purchase.totalPrice.should.equal(800);
             });
+            it('should have totalPrice 6000 when "iPhone 99" is added', () => {
+                purchase.totalPrice.should.equal(0);
+                purchase.selectCellPhone('iPhone 99');
+                purchase.totalPrice.should.equal(6000);
+            });
 
 
         });
