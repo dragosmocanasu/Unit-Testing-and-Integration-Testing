@@ -663,6 +663,14 @@ describe('Purchase', () => {
                 expect(purchase.selectedCellPhones).to.have.members([]);
             });
 
+            // Invalid cases
+            it('should not remove any elements if the Phone Name is not in the list already', () => {
+                expect(purchase.selectedCellPhones).to.have.members([]);
+                purchase.selectCellPhone('Motorola G99');
+                purchase.unselectCellPhone('iPhone 99');
+                expect(purchase.selectedCellPhones).to.have.members(['Motorola G99']);
+            });
+
         });
 
     });
