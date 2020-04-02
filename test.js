@@ -565,5 +565,13 @@ describe('Purchase', () => {
 
         });
 
+        describe('Check if error is thrown ("The Model Name must be one of the 5 available Models!")', () => {
+            // Valid values
+            it('should not throw error if parameter is Motorola G99', function(){
+                expect(() => purchase.unselectCellPhone(String('Motorola G99'))).to.not.throw('The Model Name must be one of the 5 available Models!');
+            });
+
+        });
+
     });
 });
