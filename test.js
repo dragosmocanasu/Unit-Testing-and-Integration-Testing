@@ -446,6 +446,18 @@ describe('Purchase', () => {
                 purchase.selectCellPhone('Huawei 99');
                 expect(purchase.selectedCellPhones).to.have.members(['Huawei 99']);
             });
+            it('should add the same elemnt multiple time to the selectedCellPhones array', () => {
+                expect(purchase.selectedCellPhones).to.have.members([]);
+                purchase.selectCellPhone('Motorola G99');
+                purchase.selectCellPhone('Motorola G99');
+                purchase.selectCellPhone('Huawei 99');
+                purchase.selectCellPhone('Motorola G99');
+                purchase.selectCellPhone('Huawei 99');
+                purchase.selectCellPhone('iPhone 99');
+                purchase.selectCellPhone('iPhone 99');
+                purchase.selectCellPhone('Sony Xperia 99');
+                expect(purchase.selectedCellPhones).to.have.members(["Motorola G99", "Motorola G99", 'Huawei 99', "Motorola G99", "Huawei 99", "iPhone 99", "iPhone 99", "Sony Xperia 99"]);
+            });
 
         });
 
