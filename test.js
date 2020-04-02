@@ -553,6 +553,9 @@ describe('Purchase', () => {
                 // call selectCellPhone() with no parameters
                 expect(() => purchase.unselectCellPhone()).to.throw('The parameter modelName must be a string.');
             });
+            it('should fail if parameter is NaN', function(){
+                expect(() => purchase.unselectCellPhone(NaN)).to.throw('The parameter modelName must be a string.');
+            });
 
         });
 
