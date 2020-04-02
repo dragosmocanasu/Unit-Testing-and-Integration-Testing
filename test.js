@@ -481,6 +481,17 @@ describe('Purchase', () => {
 
         });
 
+        describe('Check if the price increases when adding a phone name', () => {
+            // Valid cases
+            it('should have totalPrice 800 when "Motorola G99" is added', () => {
+                purchase.totalPrice.should.equal(0);
+                purchase.selectCellPhone('Motorola G99');
+                purchase.totalPrice.should.equal(800);
+            });
+
+
+        });
+
 
 
     });
