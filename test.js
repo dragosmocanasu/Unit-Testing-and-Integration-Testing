@@ -548,6 +548,7 @@ describe('Purchase', () => {
             it('should not fail if the parameter is a String with double quotes', function(){
                 expect(() => purchase.unselectCellPhone("Text")).to.not.throw('The parameter modelName must be a string.');
             });
+
             // Invalid cases
             it('should fail if parameter is not given', function(){
                 // call selectCellPhone() with no parameters
@@ -562,7 +563,6 @@ describe('Purchase', () => {
             it('should fail if the parameter is a Number object', function(){
                 expect(() => purchase.unselectCellPhone(Number(10))).to.throw('The parameter modelName must be a string.');
             });
-
         });
 
         describe('Check if error is thrown ("The Model Name must be one of the 5 available Models!")', () => {
@@ -582,6 +582,7 @@ describe('Purchase', () => {
             it('should not throw error if parameter is Huawei 99', function(){
                 expect(() => purchase.unselectCellPhone(String('Huawei 99'))).to.not.throw('The Model Name must be one of the 5 available Models!');
             });
+
             // Invalid values - writing just part of the phone name
             it('should throw error if parameter is Motorola', function(){
                 expect(() => purchase.unselectCellPhone(String('Motorola'))).to.throw('The Model Name must be one of the 5 available Models!');
@@ -598,6 +599,7 @@ describe('Purchase', () => {
             it('should throw error if parameter is Huawei', function(){
                 expect(() => purchase.unselectCellPhone(String('Huawei'))).to.throw('The Model Name must be one of the 5 available Models!');
             });
+
             // Invalid values
             it('should throw error if parameter is an Empty String', function(){
                 expect(() => purchase.unselectCellPhone(String(''))).to.throw('The Model Name must be one of the 5 available Models!');
@@ -670,7 +672,6 @@ describe('Purchase', () => {
                 purchase.unselectCellPhone('iPhone 99');
                 expect(purchase.selectedCellPhones).to.have.members(['Motorola G99']);
             });
-
         });
         describe('Check if the price decreases when removing a phone name', () => {
             // Valid cases
@@ -736,6 +737,7 @@ describe('Purchase', () => {
                 purchase.unselectCellPhone('iPhone 99');
                 purchase.totalPrice.should.not.equal(900);
             });
+
             // Invalid cases
             it('should NOT have totalPrice 900 when "Huawei 99" was removed', () => {
                 purchase.totalPrice.should.equal(0);
@@ -744,8 +746,6 @@ describe('Purchase', () => {
                 purchase.unselectCellPhone('Huawei 99');
                 purchase.totalPrice.should.not.equal(900);
             });
-
         });
-
     });
 });
