@@ -736,6 +736,14 @@ describe('Purchase', () => {
                 purchase.unselectCellPhone('iPhone 99');
                 purchase.totalPrice.should.not.equal(900);
             });
+            // Invalid cases
+            it('should NOT have totalPrice 900 when "Huawei 99" was removed', () => {
+                purchase.totalPrice.should.equal(0);
+                purchase.selectCellPhone('Huawei 99');
+                purchase.totalPrice.should.equal(900);
+                purchase.unselectCellPhone('Huawei 99');
+                purchase.totalPrice.should.not.equal(900);
+            });
 
         });
 
