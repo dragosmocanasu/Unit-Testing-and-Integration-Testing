@@ -586,6 +586,9 @@ describe('Purchase', () => {
             it('should throw error if parameter is Motorola', function(){
                 expect(() => purchase.unselectCellPhone(String('Motorola'))).to.throw('The Model Name must be one of the 5 available Models!');
             });
+            it('should throw error if parameter is iPhone', function(){
+                expect(() => purchase.unselectCellPhone(String('iPhone'))).to.throw('The Model Name must be one of the 5 available Models!');
+            });
 
         });
 
