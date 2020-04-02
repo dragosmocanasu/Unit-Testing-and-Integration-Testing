@@ -392,6 +392,10 @@ describe('Purchase', () => {
             it('should not throw error if parameter is Huawei 99', function(){
                 expect(() => purchase.selectCellPhone(String('Huawei 99'))).to.not.throw('The Model Name must be one of the 5 available Models!');
             });
+            // Invalid values - writing just part of the phone name
+            it('should throw error if parameter is Motorola', function(){
+                expect(() => purchase.selectCellPhone(String('Motorola'))).to.throw('The Model Name must be one of the 5 available Models!');
+            });
 
         });
 
