@@ -95,12 +95,12 @@ class Purchase {
 
         // if the parameter received is not a string, then throw an error
         if (typeof modelName !== 'string') {
-            throw new Error('modelName must be a string.');
+            throw new Error('The parameter modelName must be a string.');
         }
 
         // if the parameter received is not included in the array of Available Phones (cellPhoneNames), then throw an error
         if(!cellPhoneNames.includes(modelName)) {
-            throw new Error('The model name must be one of the 5 available models!');
+            throw new Error('The Model Name must be one of the 5 available Models!');
         }
 
         // iterate through the selectedCellPhones array

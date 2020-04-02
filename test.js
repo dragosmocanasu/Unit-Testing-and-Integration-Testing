@@ -349,6 +349,7 @@ describe('Purchase', () => {
         });
 
         describe('Check if the parameter (modelName) is valid', () => {
+            // Valid cases
             it('should not fail if the parameter is a String object', function(){
                 expect(() => purchase.selectCellPhone(String('Text'))).to.not.throw('The parameter modelName must be a string.');
             });
@@ -359,7 +360,7 @@ describe('Purchase', () => {
                 expect(() => purchase.selectCellPhone("Text")).to.not.throw('The parameter modelName must be a string.');
             });
 
-            // Expect errors to be thrown
+            // Invalid cases
             it('should fail if parameter is not given', function(){
                 // call selectCellPhone() with no parameters
                 expect(() => purchase.selectCellPhone()).to.throw('The parameter modelName must be a string.');
@@ -527,5 +528,21 @@ describe('Purchase', () => {
                 purchase.totalPrice.should.not.equal(0);
             });
         });
+    });
+
+    describe('Unselect a Cell Phone functionality', () => {
+        let purchase;
+
+        beforeEach(() => {
+            purchase = new Purchase(0, false, 0, []);
+        });
+
+        describe('Check if the parameter (modelName) is valid', () => {
+            // Valid cases
+            it('should not fail if the parameter is a String object', function(){
+                expect(() => purchase.unselectCellPhone(String('Text'))).to.not.throw('The parameter modelName must be a string.');
+            });
+        });
+
     });
 });
