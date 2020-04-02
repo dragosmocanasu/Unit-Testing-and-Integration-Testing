@@ -348,32 +348,14 @@ describe('Purchase', () => {
             purchase = new Purchase(0, false, 0, []);
         });
 
-        describe('Check if the input parameter (modelName) is valid', () => {
-            it('should be a string', () => {
-                // assert.isString(modelName);
-                assert.isTrue(true);
+
+
+        describe('Check if the parameter (modelName) is valid', () => {
+
+            it('should not fail if the parameter is a String object', function(){
+                expect(() => purchase.selectCellPhone(String('Text'))).to.not.throw('The parameter modelName must be a string.');
             });
-            // it('should not be a Null', () => {
-            //     assert.isNotNull(modelName);
-            // });
-            // it('should not be a Number', () => {
-            //     assert.isNotNumber(modelName);
-            // });
-            // it('should not be a Boolean', () => {
-            //     assert.isNotBoolean(modelName);
-            // });
-            // it('should not be a Boolean', () => {
-            //     assert.isNotEmpty(modelName);
-            //
-            //     // // Execution steps - use the divide() method
-            //     // result = this.calculator.divide(n1, n2);
-            //     //
-            //     // // Expected behavior - assert that expectedResult is equal to result
-            //     // assertEquals(expectedResult, result);
-            //     // // Expected behavior - assert that wrongResult is NOT equal to result
-            //     // assertNotEquals(wrongResult, result);
-            //
-            // });
+
         });
 
     });

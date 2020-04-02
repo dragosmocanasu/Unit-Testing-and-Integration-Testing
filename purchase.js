@@ -67,7 +67,7 @@ class Purchase {
 
         // if the parameter received is not a string, then throw an error
         if (typeof modelName !== 'string') {
-            throw new Error('modelName must be a string.');
+            throw new Error('The parameter modelName must be a string.');
         }
 
         // if the parameter received is not included in the array of Available Phones (cellPhoneNames), then throw an error
