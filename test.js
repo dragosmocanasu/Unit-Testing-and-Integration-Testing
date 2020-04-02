@@ -605,6 +605,17 @@ describe('Purchase', () => {
             it('should throw error if parameter is NOT A PHONE NAME', function(){
                 expect(() => purchase.unselectCellPhone(String('NOT A PHONE NAME'))).to.throw('The Model Name must be one of the 5 available Models!');
             });
+        });
+
+        describe('Check if a VALID selected phone name is removed from the array of selectedCellPhones', () => {
+            // Valid cases
+            it('should remove "Motorola G99" from the selectedCellPhones array', () => {
+                expect(purchase.selectedCellPhones).to.have.members([]);
+                purchase.selectCellPhone('Motorola G99');
+                expect(purchase.selectedCellPhones).to.have.members(['Motorola G99']);
+                purchase.unselectCellPhone('Motorola G99');
+                expect(purchase.selectedCellPhones).to.have.members([]);
+            });
 
         });
 
