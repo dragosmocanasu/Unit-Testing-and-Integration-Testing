@@ -548,6 +548,11 @@ describe('Purchase', () => {
             it('should not fail if the parameter is a String with double quotes', function(){
                 expect(() => purchase.unselectCellPhone("Text")).to.not.throw('The parameter modelName must be a string.');
             });
+            // Invalid cases
+            it('should fail if parameter is not given', function(){
+                // call selectCellPhone() with no parameters
+                expect(() => purchase.unselectCellPhone()).to.throw('The parameter modelName must be a string.');
+            });
 
         });
 
