@@ -29,7 +29,7 @@ describe('Purchase', () => {
                 const invalidValues = ['true', 1, 1.1];
                 const errorMessage = 'isInternetConnectionChecked must be a boolean.';
                 for (let i = 0; i < invalidValues.length; i++) {
-                    console.log(invalidValues[i]);
+                    // console.log(invalidValues[i]);
                     expect(() => purchase.internetConnection(invalidValues[i])).to.throw(errorMessage);
                 }
             });
